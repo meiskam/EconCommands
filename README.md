@@ -1,4 +1,4 @@
-ExpMoney
-========
+EconCommands
+============
 
-Bukkit Plugin - Money Account balance is equal to your experience
+Bukkit Plugin - Economy commands utilizing a Vault backend

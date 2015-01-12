@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.shininet.bukkit</groupId>
-  <artifactId>ExpMoney</artifactId>
+  <artifactId>EconCommands</artifactId>
   <packaging>jar</packaging>
   <version>0.1-SNAPSHOT</version>
-  <name>ExpMoney</name>
+  <name>EconCommands</name>
   
   <organization>
     <name>ShiniNet</name>
@@ -17,14 +17,14 @@
   </properties>
   
   <scm>
-    <developerConnection>scm:git:git@github.com:meiskam/ExpMoney.git</developerConnection>
-    <connection>scm:git:git://github.com/meiskam/ExpMoney.git</connection>
-    <url>https://github.com/meiskam/ExpMoney/tree/master/</url>
+    <developerConnection>scm:git:git@github.com:meiskam/EconCommands.git</developerConnection>
+    <connection>scm:git:git://github.com/meiskam/EconCommands.git</connection>
+    <url>https://github.com/meiskam/EconCommands/tree/master/</url>
   </scm>
   
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/meiskam/ExpMoney/issues</url>
+    <url>https://github.com/meiskam/EconCommands/issues</url>
   </issueManagement>
   
   <repositories>

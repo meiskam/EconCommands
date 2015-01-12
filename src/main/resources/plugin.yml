@@ -1,9 +1,9 @@
-name: ExpMoney
+name: EconCommands
 version: ${project.version}${describe}
-description: Vault interface that uses experience
-authors: [meiskam, killermantime]
+description: Economy commands utilizing a Vault backend
+author: meiskam
 
-main: org.shininet.bukkit.expmoney.ExpMoney
+main: org.shininet.bukkit.econcommands.EconCommands
 database: false
 
 depend: [Vault]
