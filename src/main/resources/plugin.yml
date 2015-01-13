@@ -7,3 +7,13 @@ main: org.shininet.bukkit.econcommands.EconCommands
 database: false
 
 depend: [Vault]
+softdepend: [WorldEdit]
+
+permissions:
+  econcommands.balance:
+    description: Can get balance of self or another player
+    children:
+      econcommands.balance.self:
+        description: Can get balance of self
+      econcommands.balance.other:
+        description: Can get balance of another player

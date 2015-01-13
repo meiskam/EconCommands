@@ -37,9 +37,13 @@
       <url>http://repo.md-5.net/content/repositories/releases/</url>
     </repository>
     <repository>
-	  <id>vault-repo</id>
-	  <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
-</repository>
+      <id>vault-repo</id>
+      <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
+    </repository>
+    <repository>
+      <id>sk89q-repo</id>
+      <url>http://maven.sk89q.com/repo</url>
+    </repository>
   </repositories>
   
   <dependencies>
@@ -58,6 +62,11 @@
       <artifactId>VaultAPI</artifactId>
       <version>1.5</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sk89q</groupId>
+      <artifactId>worldedit</artifactId>
+      <version>5.5.9-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -122,6 +131,7 @@
               <Implementation-Version>${project.version}${describe}</Implementation-Version>
               <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
               <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+              <Class-Path>EconCommands/WorldEdit.jar lib/WorldEdit.jar ../lib/WorldEdit.jar ../WorldEdit.jar</Class-Path>
             </manifestEntries>
           </archive>
         </configuration>
