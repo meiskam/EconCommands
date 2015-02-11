@@ -16,7 +16,7 @@ import com.sk89q.minecraft.util.commands.NestedCommand;
 public class Commands {
 
 	public static class Parent {
-		@Command(aliases = {"EconCommands", "money"}, desc = "Economy commands")
+		@Command(aliases = {"econcommands", "money"}, desc = "Economy commands")
 		@NestedCommand({Commands.class})
 		public static void money() {
 		}
