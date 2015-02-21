@@ -29,7 +29,7 @@ public class CommandsMoneyAdmin {
 			return;
 		}
 		if (econ().depositPlayer(playerOther, amount).transactionSuccess()) {
-			sender.sendMessage("Added "+EconCommands.format(amount)+" to "+playerOther.getName()+"'s account, new balance: "+econ().getBalance(playerOther));
+			sender.sendMessage("Added "+EconCommands.format(amount)+" to "+playerOther.getName()+"'s account, new balance: "+EconCommands.format(econ().getBalance(playerOther)));
 		} else {
 			sender.sendMessage("Error, could not add to "+playerOther.getName()+"'s account");
 		}
@@ -49,7 +49,7 @@ public class CommandsMoneyAdmin {
 			return;
 		}
 		if (econ().withdrawPlayer(playerOther, amount).transactionSuccess()) {
-			sender.sendMessage("Removed "+EconCommands.format(amount)+" from "+playerOther.getName()+"'s account, new balance: "+econ().getBalance(playerOther));
+			sender.sendMessage("Removed "+EconCommands.format(amount)+" from "+playerOther.getName()+"'s account, new balance: "+EconCommands.format(econ().getBalance(playerOther)));
 		} else {
 			sender.sendMessage("Error, could not remove from "+playerOther.getName()+"'s account");
 		}
@@ -71,7 +71,7 @@ public class CommandsMoneyAdmin {
 		econ().withdrawPlayer(playerOther, econ().getBalance(playerOther));
 		
 		if (econ().depositPlayer(playerOther, amount).transactionSuccess()) {
-			sender.sendMessage("Set "+playerOther.getName()+"'s account, new balance: "+econ().getBalance(playerOther));
+			sender.sendMessage("Set "+playerOther.getName()+"'s account, new balance: "+EconCommands.format(econ().getBalance(playerOther)));
 		} else {
 			sender.sendMessage("Error, could not set "+playerOther.getName()+"'s account");
 		}
