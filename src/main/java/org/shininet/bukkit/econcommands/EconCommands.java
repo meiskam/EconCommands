@@ -99,4 +99,10 @@ public class EconCommands extends JavaPlugin {
 
 		return true;
 	}
+
+	static void requirePermission(CommandSender sender, String permission) throws CommandPermissionsException {
+		if (!(EconCommands.inst().commands.hasPermission(sender, permission))) {
+			throw new CommandPermissionsException();
+		}
+	}
 }

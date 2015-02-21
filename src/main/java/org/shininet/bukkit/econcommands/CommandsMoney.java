@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
 import com.sk89q.minecraft.util.commands.CommandException;
-import com.sk89q.minecraft.util.commands.CommandPermissionsException;
 import com.sk89q.minecraft.util.commands.NestedCommand;
 
 public class CommandsMoney {
@@ -19,12 +18,6 @@ public class CommandsMoney {
 		@Command(aliases = {"econcommands", "money"}, desc = "Economy commands")
 		@NestedCommand({CommandsMoney.class})
 		public static void money() {
-		}
-	}
-
-	private static void requirePermission(CommandSender sender, String permission) throws CommandPermissionsException {
-		if (!(EconCommands.inst().commands.hasPermission(sender, permission))) {
-			throw new CommandPermissionsException();
 		}
 	}
 
@@ -41,14 +34,14 @@ public class CommandsMoney {
 	public static void balance(CommandContext args, CommandSender sender) throws CommandException {
 		double balance;
 		if (args.argsLength() == 0) {
-			requirePermission(sender, "econcommands.balance.self");
+			EconCommands.requirePermission(sender, "econcommands.balance.self");
 			if (!(sender instanceof Player)) {
 				throw new CommandException("Command must either be issued by a player or have player name in arguments");
 			}
 			Player player = (Player) sender;
 			balance = econ().getBalance(player);
 		} else {
-			requirePermission(sender, "econcommands.balance.other");
+			EconCommands.requirePermission(sender, "econcommands.balance.other");
 			OfflinePlayer playerOther = offlinePlayer(args.getString(0));
 			if (!(econ().hasAccount(playerOther))) {
 				sender.sendMessage("That player does not have an account");
@@ -61,7 +54,7 @@ public class CommandsMoney {
 
 	@Command(aliases = {"pay", "give"}, usage = "<player> <amount>", desc = "Transfer currency to another player", min = 2, max = 2)
 	public static void pay(CommandContext args, CommandSender sender) throws CommandException {
-		requirePermission(sender, "econcommands.pay");
+		EconCommands.requirePermission(sender, "econcommands.pay");
 		if (!(sender instanceof Player)) {
 			throw new CommandException("Command must either be issued by a player or have player name in arguments");
 		}
