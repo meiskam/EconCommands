@@ -50,11 +50,15 @@ public class CommandsMoney {
 	public static void pay(CommandContext args, CommandSender sender) throws CommandException {
 		EconCommands.requirePermission(sender, "econcommands.pay");
 		if (!(sender instanceof Player)) {
-			throw new CommandException("Command must either be issued by a player or have player name in arguments");
+			throw new CommandException("Command must be issued by a player");
 		}
 		Player player = (Player) sender;
 		OfflinePlayer playerOther = EconCommands.offlinePlayer(args.getString(0));
 		Double amount = args.getDouble(1);
+		if (player.getName().equals(playerOther.getName())) {
+			sender.sendMessage("Poof, you sent yourself "+EconCommands.format(amount));
+			return;
+		}
 		if (amount <= 0) {
 			sender.sendMessage("Amount must be greater than 0");
 			return;
