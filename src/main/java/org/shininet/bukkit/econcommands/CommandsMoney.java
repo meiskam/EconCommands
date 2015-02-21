@@ -2,7 +2,6 @@ package org.shininet.bukkit.econcommands;
 
 import net.milkbowl.vault.economy.Economy;
 
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -72,7 +71,6 @@ public class CommandsMoney {
 		econ().depositPlayer(playerOther, amount);
 		sender.sendMessage(EconCommands.format(amount)+" sent to "+playerOther.getName());
 	}
-	//TODO pay, admin: deposit withdraw set, 
 
 	@Command(aliases = {"admin"}, desc = "Admin commands")
 	@NestedCommand({CommandsMoneyAdmin.class})
