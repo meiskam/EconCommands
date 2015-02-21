@@ -24,7 +24,7 @@ public class CommandsMoney {
 		return EconCommands.econ;
 	}
 
-	@Command(aliases = {"balance"}, usage = "[player]", desc = "Check a player balance", min = 0, max = 1)
+	@Command(aliases = {"balance", "bal"}, usage = "[player]", desc = "Check a player balance", min = 0, max = 1)
 	public static void balance(CommandContext args, CommandSender sender) throws CommandException {
 		double balance;
 		if (args.argsLength() == 0) {
