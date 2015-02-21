@@ -55,7 +55,7 @@ public class EconCommands extends JavaPlugin {
 		};
 
 		final CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, commands);
-		cmdRegister.register(Commands.Parent.class);
+		cmdRegister.register(CommandsMoney.Parent.class);
 	}
 
 	private void die(String message) {

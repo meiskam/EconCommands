@@ -13,11 +13,11 @@ import com.sk89q.minecraft.util.commands.CommandException;
 import com.sk89q.minecraft.util.commands.CommandPermissionsException;
 import com.sk89q.minecraft.util.commands.NestedCommand;
 
-public class Commands {
+public class CommandsMoney {
 
 	public static class Parent {
 		@Command(aliases = {"econcommands", "money"}, desc = "Economy commands")
-		@NestedCommand({Commands.class})
+		@NestedCommand({CommandsMoney.class})
 		public static void money() {
 		}
 	}
