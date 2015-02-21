@@ -47,7 +47,6 @@ public class Commands {
 			}
 			Player player = (Player) sender;
 			balance = econ().getBalance(player);
-			player.sendMessage("Balance: " + econ().format(balance) + " " + ((balance == 1)?econ().currencyNameSingular():econ().currencyNamePlural()));
 		} else {
 			requirePermission(sender, "econcommands.balance.other");
 			OfflinePlayer playerOther = offlinePlayer(args.getString(0));
