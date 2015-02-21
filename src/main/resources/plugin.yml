@@ -24,3 +24,5 @@ permissions:
     children:
       econcommands.admin.add:
         description: Can add currency to a players account
+      econcommands.admin.remove:
+        description: Can remove currency from a players account
