@@ -17,3 +17,5 @@ permissions:
         description: Can get balance of self
       econcommands.balance.other:
         description: Can get balance of another player
+  econcommands.pay:
+    description: Can transfer currency to another player

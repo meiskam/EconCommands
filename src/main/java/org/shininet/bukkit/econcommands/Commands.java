@@ -58,4 +58,31 @@ public class Commands {
 		}
 		sender.sendMessage("Balance: " + econ().format(balance) + " " + ((balance == 1)?econ().currencyNameSingular():econ().currencyNamePlural()));
 	}
+
+	@Command(aliases = {"pay", "give"}, usage = "<player> <amount>", desc = "Transfer currency to another player", min = 2, max = 2)
+	public static void pay(CommandContext args, CommandSender sender) throws CommandException {
+		requirePermission(sender, "econcommands.pay");
+		if (!(sender instanceof Player)) {
+			throw new CommandException("Command must either be issued by a player or have player name in arguments");
+		}
+		Player player = (Player) sender;
+		OfflinePlayer playerOther = offlinePlayer(args.getString(0));
+		Double amount = args.getDouble(1);
+		if (amount <= 0) {
+			sender.sendMessage("Amount must be greater than 0");
+			return;
+		}
+		if (!(econ().has(player, amount))) {
+			sender.sendMessage("You don't have that much");
+			return;
+		}
+		if (!(econ().hasAccount(playerOther))) {
+			sender.sendMessage("That player does not have an account");
+			return;
+		}
+		econ().withdrawPlayer(player, amount);
+		econ().depositPlayer(playerOther, amount);
+		sender.sendMessage(amount+" sent to "+playerOther.getName());
+	}
+	//TODO pay, admin: deposit withdraw set, 
 }
