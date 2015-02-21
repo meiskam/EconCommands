@@ -25,11 +25,6 @@ public class CommandsMoney {
 		return EconCommands.econ;
 	}
 
-	@SuppressWarnings("deprecation")
-	private static OfflinePlayer offlinePlayer(String name) {
-		return Bukkit.getOfflinePlayer(name);
-	}
-
 	@Command(aliases = {"balance"}, usage = "[player]", desc = "Check a player balance", min = 0, max = 1)
 	public static void balance(CommandContext args, CommandSender sender) throws CommandException {
 		double balance;
@@ -42,7 +37,7 @@ public class CommandsMoney {
 			balance = econ().getBalance(player);
 		} else {
 			EconCommands.requirePermission(sender, "econcommands.balance.other");
-			OfflinePlayer playerOther = offlinePlayer(args.getString(0));
+			OfflinePlayer playerOther = EconCommands.offlinePlayer(args.getString(0));
 			if (!(econ().hasAccount(playerOther))) {
 				sender.sendMessage("That player does not have an account");
 				return;
@@ -59,7 +54,7 @@ public class CommandsMoney {
 			throw new CommandException("Command must either be issued by a player or have player name in arguments");
 		}
 		Player player = (Player) sender;
-		OfflinePlayer playerOther = offlinePlayer(args.getString(0));
+		OfflinePlayer playerOther = EconCommands.offlinePlayer(args.getString(0));
 		Double amount = args.getDouble(1);
 		if (amount <= 0) {
 			sender.sendMessage("Amount must be greater than 0");

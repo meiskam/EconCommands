@@ -2,7 +2,9 @@ package org.shininet.bukkit.econcommands;
 
 import net.milkbowl.vault.economy.Economy;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -104,5 +106,10 @@ public class EconCommands extends JavaPlugin {
 		if (!(EconCommands.inst().commands.hasPermission(sender, permission))) {
 			throw new CommandPermissionsException();
 		}
+	}
+
+	@SuppressWarnings("deprecation")
+	static OfflinePlayer offlinePlayer(String name) {
+		return Bukkit.getOfflinePlayer(name);
 	}
 }
