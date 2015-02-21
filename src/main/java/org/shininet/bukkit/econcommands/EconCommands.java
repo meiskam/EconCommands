@@ -112,4 +112,8 @@ public class EconCommands extends JavaPlugin {
 	static OfflinePlayer offlinePlayer(String name) {
 		return Bukkit.getOfflinePlayer(name);
 	}
+
+	static String format(double amount) {
+		return econ.format(amount) + " " + ((amount == 1)?econ.currencyNameSingular():econ.currencyNamePlural());
+	}
 }

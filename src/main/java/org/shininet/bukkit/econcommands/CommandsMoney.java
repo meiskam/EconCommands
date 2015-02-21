@@ -44,7 +44,7 @@ public class CommandsMoney {
 			}
 			balance = econ().getBalance(playerOther);
 		}
-		sender.sendMessage("Balance: " + econ().format(balance) + " " + ((balance == 1)?econ().currencyNameSingular():econ().currencyNamePlural()));
+		sender.sendMessage("Balance: " + EconCommands.format(balance));
 	}
 
 	@Command(aliases = {"pay", "give"}, usage = "<player> <amount>", desc = "Transfer currency to another player", min = 2, max = 2)
@@ -70,7 +70,7 @@ public class CommandsMoney {
 		}
 		econ().withdrawPlayer(player, amount);
 		econ().depositPlayer(playerOther, amount);
-		sender.sendMessage(amount+" sent to "+playerOther.getName());
+		sender.sendMessage(EconCommands.format(amount)+" sent to "+playerOther.getName());
 	}
 	//TODO pay, admin: deposit withdraw set, 
 }
