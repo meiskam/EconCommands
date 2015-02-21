@@ -19,3 +19,8 @@ permissions:
         description: Can get balance of another player
   econcommands.pay:
     description: Can transfer currency to another player
+  econcommands.admin:
+    description: Can fiddle with other players accounts
+    children:
+      econcommands.admin.add:
+        description: Can add currency to a players account

@@ -73,4 +73,9 @@ public class CommandsMoney {
 		sender.sendMessage(EconCommands.format(amount)+" sent to "+playerOther.getName());
 	}
 	//TODO pay, admin: deposit withdraw set, 
+
+	@Command(aliases = {"admin"}, desc = "Admin commands")
+	@NestedCommand({CommandsMoneyAdmin.class})
+	public static void money() {
+	}
 }
